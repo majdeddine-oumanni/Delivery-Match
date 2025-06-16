@@ -1,34 +1,18 @@
-package com.delivery.backend.Model;
+package com.delivery.backend.DTO;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import com.delivery.backend.Model.Driver;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.ManyToOne;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
-public class Trip {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class TripDTO {
     private String start;
-    @ElementCollection
     private List<String> wayPoints = new ArrayList<>();
     private String destination;
     private int maxPackageCapacity;
     private String typeOfGoods;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getStart() {
         return start;
@@ -78,6 +62,5 @@ public class Trip {
         this.driver = driver;
     }
 
-    @ManyToOne
     private Driver driver;
 }
