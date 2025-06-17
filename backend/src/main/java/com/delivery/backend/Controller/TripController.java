@@ -20,8 +20,8 @@ public class TripController {
         return service.postTrip(dto);
     }
 
-    @GetMapping("/list")
-    public List<TripDTO> getTrips(){
-        return service.getAllTrips();
+    @GetMapping("/list/{id}")
+    public List<TripDTO> getTrips(@PathVariable Long id){
+        return service.getAllTrips(id);
     }
 }

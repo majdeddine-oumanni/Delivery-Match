@@ -1,7 +1,6 @@
 package com.delivery.backend.Controller;
 
 import com.delivery.backend.DTO.UserDTO;
-import com.delivery.backend.Model.User;
 import com.delivery.backend.Service.UserService;
 import org.springframework.web.bind.annotation.*;
 
