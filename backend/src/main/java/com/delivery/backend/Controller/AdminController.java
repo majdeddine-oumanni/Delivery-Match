@@ -3,9 +3,7 @@ package com.delivery.backend.Controller;
 import com.delivery.backend.DTO.UserDTO;
 import com.delivery.backend.Model.User;
 import com.delivery.backend.Service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,11 @@ public class AdminController {
     @GetMapping("/userList")
     public List<UserDTO> getUsers(){
         return service.getUsersList();
+    }
+
+    @DeleteMapping("/deleteUser/{id}")
+    public void deleteUser(@PathVariable Long id){
+        service.deleteUser(id);
     }
 
 }
