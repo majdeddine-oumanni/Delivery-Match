@@ -15,7 +15,6 @@ public class UserController {
         this.service = service;
     }
 
-
     @PutMapping("/update/{id}")
     public UserDTO updateUser(@RequestBody UserDTO dto, @PathVariable Long id){
         return service.updateUser(dto, id);
