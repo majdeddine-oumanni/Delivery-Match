@@ -27,6 +27,8 @@ public class SecurityConfiguration {
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/api/v1/auth/**").permitAll()
+                .requestMatchers("/trip/**").hasRole("DRIVER")
+                .requestMatchers("/user/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
