@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 public class UserDTO {
     private String name;
     private String email;
+    private String password;
+    private Role role;
+
 
     public String getName() {
         return name;
@@ -34,5 +37,10 @@ public class UserDTO {
         this.role = role;
     }
 
-    private Role role;
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
