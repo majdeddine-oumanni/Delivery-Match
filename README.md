@@ -67,15 +67,15 @@ ng serve
 ```
 ## Use Case Diagram
  **_Describes how users interact with the system_**
- ![Diagramme](UMLs\diagramme_UseCase_UML.png)
+ ![Diagramme](UMLs/diagramme_UseCase_UML.png)
 ---
 ### Class Diagram
  **_Illustrates system entities and their relationships._**
- ![Diagramme](UMLs\diagramme_Class_UML.png)
+ ![Diagramme](UMLs/diagramme_Class_UML.png)
 ---
 ### Sequence Diagram - Post Trip
  **_Shows step-by-step interaction to post a trip._**
- ![Diagramme](UMLs\SequenceUML.png)
+ ![Diagramme](UMLs/SequenceUML.png)
 ---
 
 
