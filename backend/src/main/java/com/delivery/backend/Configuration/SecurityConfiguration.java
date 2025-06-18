@@ -30,7 +30,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 .requestMatchers("/trip/**").hasRole("DRIVER")
-                .requestMatchers("/user/**").permitAll()
+                .requestMatchers("/user/**").hasAnyRole("DRIVER", "SENDER")
                 .anyRequest()
                 .authenticated()
                 .and()

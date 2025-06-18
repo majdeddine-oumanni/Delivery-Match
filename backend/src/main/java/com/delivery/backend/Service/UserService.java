@@ -21,14 +21,13 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
     public UserDTO updateUser(UserDTO dto, Long id){
-        User user = repository.findById(id).orElse(null);
-        if (user == null){
-            throw new RuntimeException("user not found");
-        }
+        User user = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("user not found"));
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        return mapper.toDTO(user);
+        User savedUser = repository.save(user);
+        return mapper.toDTO(savedUser);
     }
 
     public List<UserDTO> getUsersList(){
