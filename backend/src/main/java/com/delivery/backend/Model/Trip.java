@@ -78,4 +78,7 @@ public class Trip {
 
     @ManyToOne
     private Driver driver;
+
+    @OneToMany(mappedBy = "trip")
+    private List<PackageRequest> packageRequests;
 }
