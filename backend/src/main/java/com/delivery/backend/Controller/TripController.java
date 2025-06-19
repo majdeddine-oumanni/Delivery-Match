@@ -44,6 +44,6 @@ public class TripController {
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public TripDTO updateTrip(@RequestBody TripDTO dto, @PathVariable Long id){
-        return service.updateTrip(dto, id);
+        return service.update(dto, id);
     }
 }

@@ -49,13 +49,15 @@ public class TripService {
         repository.deleteById(id);
     }
 
-    public TripDTO updateTrip(TripDTO dto, Long id){
+    public TripDTO update(TripDTO dto, Long id){
         Trip foundTrip = repository.findById(id)
                 .orElseThrow(()-> new RuntimeException("trip not found"));
         foundTrip.setDestination(dto.getDestination());
         foundTrip.setMaxPackageCapacity(dto.getMaxPackageCapacity());
         foundTrip.setStart(dto.getStart());
         foundTrip.setWayPoints(dto.getWayPoints());
-        return mapper.toDTO(foundTrip);
+        foundTrip.setTypeOfGoods(dto.getTypeOfGoods());
+        Trip trip = repository.save(foundTrip);
+        return mapper.toDTO(trip);
     }
 }
