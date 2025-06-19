@@ -1,7 +1,9 @@
 package com.delivery.backend.Controller;
 
 import com.delivery.backend.DTO.TripDTO;
+import com.delivery.backend.Model.Trip;
 import com.delivery.backend.Service.TripService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,13 +17,22 @@ public class TripController {
         this.service = service;
     }
 
+    @PreAuthorize("hasRole('DRIVER')")
     @PostMapping("/post")
     public TripDTO postTrip(@RequestBody TripDTO dto){
         return service.postTrip(dto);
     }
 
-    @GetMapping("/list/{id}")
+    @PreAuthorize("hasRole('DRIVER')")
+    @GetMapping("/driversList/{id}")
     public List<TripDTO> getTrips(@PathVariable Long id){
-        return service.getAllTrips(id);
+        return service.getDriverTrips(id);
+    }
+
+
+    @PreAuthorize("hasAnyRole('ADMIN', 'SENDER')")
+    @GetMapping("/list")
+    public List<TripDTO> getTripsList(){
+        return service.getAllTrips();
     }
 }

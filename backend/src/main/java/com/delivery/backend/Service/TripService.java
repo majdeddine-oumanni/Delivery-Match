@@ -24,8 +24,13 @@ public class TripService {
         return mapper.toDTO(savedTrip);
     }
 
-    public List<TripDTO> getAllTrips(Long id){
-        List<Trip> trips = repository.findByDriver_Id(id);
+    public List<TripDTO> getDriverTrips(Long id){
+        List<Trip> trips = repository.findAllByDriver_Id(id);
+        return mapper.toDTOs(trips);
+    }
+
+    public List<TripDTO> getAllTrips(){
+        List<Trip> trips = repository.findAll();
         return mapper.toDTOs(trips);
     }
 }

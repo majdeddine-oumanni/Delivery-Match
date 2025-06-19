@@ -54,13 +54,4 @@ public class TripDTO {
         this.typeOfGoods = typeOfGoods;
     }
 
-    public Driver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
-
-    private Driver driver;
 }
