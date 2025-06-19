@@ -1,12 +1,13 @@
 package com.delivery.backend.DTO;
 
-import com.delivery.backend.Model.Driver;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class TripDTO {
     private String start;
     private List<String> wayPoints = new ArrayList<>();

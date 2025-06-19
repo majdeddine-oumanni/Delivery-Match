@@ -68,6 +68,12 @@ public class Trip {
         this.typeOfGoods = typeOfGoods;
     }
 
+
+
+    @ManyToOne
+    @JoinColumn(name = "driver_id")
+    private Driver driver;
+
     public Driver getDriver() {
         return driver;
     }
@@ -76,9 +82,7 @@ public class Trip {
         this.driver = driver;
     }
 
-    @ManyToOne
-    private Driver driver;
 
     @OneToMany(mappedBy = "trip")
-    private List<PackageRequest> packageRequests;
+    private List<PackageRequest> packageRequests = new ArrayList<>();
 }
