@@ -10,10 +10,4 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'frontend';
-  http = inject(HttpClient);
-  constructor(){
-    this.http.get("http://localhost:8080/api/v1/auth/register").subscribe((res)=>{
-      console.log(res);
-    })
-  }
 }
