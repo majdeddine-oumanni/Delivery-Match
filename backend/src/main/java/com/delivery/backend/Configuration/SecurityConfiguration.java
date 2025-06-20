@@ -32,6 +32,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/trip/**").hasAnyRole("DRIVER", "ADMIN", "SENDER")
                 .requestMatchers("/user/**").hasAnyRole("DRIVER", "SENDER", "ADMIN")
                 .requestMatchers("/package/**").hasAnyRole("DRIVER", "SENDER", "ADMIN")
+                .requestMatchers("/request/**").hasAnyRole("DRIVER", "SENDER", "ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
