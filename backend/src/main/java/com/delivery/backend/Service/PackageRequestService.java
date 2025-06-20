@@ -2,10 +2,8 @@ package com.delivery.backend.Service;
 
 import com.delivery.backend.DTO.PackageRequestDTO;
 import com.delivery.backend.Mappers.PackageRequestMapper;
-import com.delivery.backend.Model.Package;
 import com.delivery.backend.Model.PackageRequest;
 import com.delivery.backend.Model.Sender;
-import com.delivery.backend.Model.Trip;
 import com.delivery.backend.Repositories.PackageRepository;
 import com.delivery.backend.Repositories.PackageRequestRepository;
 
@@ -36,15 +34,19 @@ public class PackageRequestService {
     }
 
     public PackageRequestDTO createRequest(PackageRequestDTO dto) {
-        PackageRequest request = new PackageRequest();
+        PackageRequest request = mapper.toEntity(dto);
+
         request.setTrip(tripRepository.findById(dto.getTripId())
                 .orElseThrow(() -> new RuntimeException("Trip not found")));
+
         request.setSender((Sender) senderRepository.findById(dto.getSenderId())
                 .orElseThrow(() -> new RuntimeException("Sender not found")));
+
         request.setaPackage(packageRepository.findById(dto.getPackageId())
                 .orElseThrow(() -> new RuntimeException("Package not found")));
-        request.setStatus(dto.getStatus() == null ? null : Enum.valueOf(
-                request.getStatus().getClass(), dto.getStatus()));
+
+        request.setStatus(dto.getStatus());
+
         PackageRequest saved = repository.save(request);
         return mapper.toDTO(saved);
     }

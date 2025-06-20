@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/package")
+@CrossOrigin("*")
 public class PackageController {
     private final PackageService service;
 

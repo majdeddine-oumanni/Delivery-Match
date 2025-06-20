@@ -6,6 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,6 +25,17 @@ public class Package {
 
     @OneToOne
     private PackageRequest request;
+
+    @ManyToOne
+    private Sender sender;
+
+    public Sender getSender() {
+        return sender;
+    }
+
+    public void setSender(Sender sender) {
+        this.sender = sender;
+    }
 
     public Long getId() {
         return id;

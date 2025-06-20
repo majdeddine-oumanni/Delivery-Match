@@ -1,5 +1,6 @@
 package com.delivery.backend.DTO;
 
+import com.delivery.backend.Model.RequestStatus;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +10,7 @@ public class PackageRequestDTO {
     private Long tripId;
     private Long senderId;
     private Long packageId;
-    private String status;
+    private RequestStatus status;
 
     public Long getTripId() {
         return tripId;
@@ -35,11 +36,11 @@ public class PackageRequestDTO {
         this.packageId = packageId;
     }
 
-    public String getStatus() {
+    public RequestStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(RequestStatus status) {
         this.status = status;
     }
 }
