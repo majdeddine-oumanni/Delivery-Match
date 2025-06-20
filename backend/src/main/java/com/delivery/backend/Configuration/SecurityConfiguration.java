@@ -31,6 +31,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 .requestMatchers("/trip/**").hasAnyRole("DRIVER", "ADMIN", "SENDER")
                 .requestMatchers("/user/**").hasAnyRole("DRIVER", "SENDER", "ADMIN")
+                .requestMatchers("/package/**").hasAnyRole("DRIVER", "SENDER", "ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
