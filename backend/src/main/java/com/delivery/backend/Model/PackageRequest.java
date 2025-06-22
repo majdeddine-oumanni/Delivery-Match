@@ -12,17 +12,72 @@ public class PackageRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private double weight;  // in kilograms
+    private double length;  // in centimeters
+    private double width;
+    private double height;
+    private String description;
+    @Enumerated(EnumType.STRING)
+    private RequestStatus status;
+
+    @Column(name = "trip_id")
+    private Long tripId;
+
+    // Keep the relationship too (optional, for when you need the full Trip object)
     @ManyToOne
+    @JoinColumn(name = "trip_id", insertable = false, updatable = false)
     private Trip trip;
 
     @ManyToOne
     private Sender sender;
 
-    @OneToOne
-    private Package aPackage;
+    public Long getTripId() {
+        return tripId;
+    }
 
-    @Enumerated(EnumType.STRING)
-    private RequestStatus status;
+    public void setTripId(Long tripId) {
+        this.tripId = tripId;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
@@ -43,14 +98,6 @@ public class PackageRequest {
 
     public RequestStatus getStatus() {
         return status;
-    }
-
-    public Package getaPackage() {
-        return aPackage;
-    }
-
-    public void setaPackage(Package aPackage) {
-        this.aPackage = aPackage;
     }
 
     public void setStatus(RequestStatus status) {

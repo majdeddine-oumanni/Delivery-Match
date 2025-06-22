@@ -3,6 +3,7 @@ package com.delivery.backend.Service;
 import com.delivery.backend.DTO.TripDTO;
 import com.delivery.backend.Mappers.TripMapper;
 import com.delivery.backend.Model.Driver;
+import com.delivery.backend.Model.Sender;
 import com.delivery.backend.Model.Trip;
 import com.delivery.backend.Repositories.TripRepository;
 import com.delivery.backend.Repositories.UserRepository;
@@ -35,8 +36,10 @@ public class TripService {
         return mapper.toDTO(savedTrip);
     }
 
-    public List<TripDTO> getDriverTrips(Long id){
-        List<Trip> trips = repository.findAllByDriver_Id(id);
+    public List<TripDTO> getDriverTrips(){
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Driver driver = (Driver) userRepository.findByEmail(email);
+        List<Trip> trips = repository.findAllByDriver_Id(driver.getId());
         return mapper.toDTOs(trips);
     }
 

@@ -8,9 +8,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PackageRequestDTO {
     private Long tripId;
-    private Long senderId;
-    private Long packageId;
     private RequestStatus status;
+    private double weight;  // in kilograms
+    private double length;  // in centimeters
+    private double width;
+    private double height;
+    private String description;
+
 
     public Long getTripId() {
         return tripId;
@@ -20,27 +24,51 @@ public class PackageRequestDTO {
         this.tripId = tripId;
     }
 
-    public Long getSenderId() {
-        return senderId;
-    }
-
-    public void setSenderId(Long senderId) {
-        this.senderId = senderId;
-    }
-
-    public Long getPackageId() {
-        return packageId;
-    }
-
-    public void setPackageId(Long packageId) {
-        this.packageId = packageId;
-    }
-
     public RequestStatus getStatus() {
         return status;
     }
 
     public void setStatus(RequestStatus status) {
         this.status = status;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

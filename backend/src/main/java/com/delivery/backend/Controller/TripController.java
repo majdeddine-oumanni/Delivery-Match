@@ -24,9 +24,9 @@ public class TripController {
     }
 
     @PreAuthorize("hasRole('DRIVER')")
-    @GetMapping("/driversList/{id}")
-    public List<TripDTO> getTrips(@PathVariable Long id){
-        return service.getDriverTrips(id);
+    @GetMapping("/driversList")
+    public List<TripDTO> getTrips(){
+        return service.getDriverTrips();
     }
 
 
