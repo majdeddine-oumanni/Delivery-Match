@@ -1,0 +1,25 @@
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: center;
+}
+.boxes {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.box {
+  flex: 1;
+  margin: 0 10px;
+  text-decoration: none;
+}
+mat-card {
+  padding: 20px;
+  transition: transform 0.2s;
+}
+mat-card:hover {
+  transform: scale(1.05);
+}
+button {
+  margin-top: 20px;
+}

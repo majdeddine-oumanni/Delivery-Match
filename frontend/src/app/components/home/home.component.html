@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Admin Dashboard</h2>
+  <div class="boxes">
+    <a routerLink="/users" class="box">
+      <mat-card>
+        <mat-card-title>Manage Users</mat-card-title>
+        <mat-card-content>View and manage all registered users.</mat-card-content>
+      </mat-card>
+    </a>
+    <a routerLink="/trips" class="box">
+      <mat-card>
+        <mat-card-title>Manage Trips</mat-card-title>
+        <mat-card-content>View and manage all trips.</mat-card-content>
+      </mat-card>
+    </a>
+    <a routerLink="/requests" class="box">
+      <mat-card>
+        <mat-card-title>Manage Requests</mat-card-title>
+        <mat-card-content>View and manage all requests.</mat-card-content>
+      </mat-card>
+    </a>
+  </div>
+  <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+</div>

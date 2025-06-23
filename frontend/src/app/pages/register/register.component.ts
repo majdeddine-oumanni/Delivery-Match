@@ -14,7 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  fullname: string = '';
+  name: string = '';
   email: string = '';
   password: string = '';
   role: string = '';
@@ -22,11 +22,11 @@ export class RegisterComponent {
   constructor(private authService: AuthService) {}
 
   onRegister() {
-    this.authService.register({ fullname: this.fullname, email: this.email, password: this.password, role: this.role })
+    this.authService.register({ name: this.name, email: this.email, password: this.password, role: this.role.toUpperCase() })
       .subscribe({
         next: (response) => {
           alert('Registration successful! Please login.');
-          window.location.href = '/login'; // Redirect to login page
+          window.location.href = '/login';
         },
         error: (error) => {
           alert('Registration failed: ' + error.error.message);
